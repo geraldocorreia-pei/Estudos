@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102a56">
+<title>Portal de Estudos | Prova Paulista</title>
+<style>
+:root{--navy:#102a56;--navy2:#183c73;--blue:#2864c5;--cyan:#27b7c7;--ink:#17243a;--muted:#68778e;--line:#e5ebf3;--bg:#f4f7fb;--white:#fff;--green:#16866b;--shadow:0 14px 40px rgba(20,43,78,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.topline{height:5px;background:linear-gradient(90deg,var(--cyan),#4c85e8,var(--navy))}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+header{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.head{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.4px}.logo{width:43px;height:43px;border-radius:13px;background:linear-gradient(145deg,var(--navy),var(--blue));display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 7px 18px #183c7330}.brand small{display:block;font-size:10px;letter-spacing:1.7px;color:var(--muted);font-weight:700;margin-top:3px}.nav{display:flex;align-items:center;gap:24px;color:#52627a;font-size:13px;font-weight:650}.nav a:hover{color:var(--blue)}.nav .nav-cta{background:var(--navy);color:white;padding:11px 16px;border-radius:10px}.menu{display:none;border:0;background:#eef3fa;border-radius:10px;padding:10px;color:var(--navy)}
+.hero{background:radial-gradient(circle at 80% 15%,#2b5794 0,transparent 32%),linear-gradient(115deg,#10264d,#173d73 62%,#176078);color:#fff;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff19;border-radius:50%;right:-90px;top:-180px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff06}.hero-inner{padding:64px 0 58px;position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#85e5e7;font-weight:800}.hero h1{font-size:clamp(34px,5vw,55px);line-height:1.06;letter-spacing:-1.8px;margin:15px 0}.hero p{max-width:650px;color:#d5e1f1;line-height:1.7;font-size:15px;margin:0 0 25px}.hero-actions{display:flex;gap:11px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:12px 17px;font-weight:750;font-size:13px;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-light{background:white;color:var(--navy)}.btn-outline{border:1px solid #ffffff65;color:white;background:#ffffff0d}.hero-card{justify-self:end;width:min(100%,300px);padding:22px;border:1px solid #ffffff2a;background:#ffffff12;backdrop-filter:blur(8px);border-radius:18px}.hero-card .big{font-size:38px;font-weight:850;letter-spacing:-1px}.hero-card p{font-size:12px;margin:5px 0 18px}.mini-stat{display:flex;justify-content:space-between;border-top:1px solid #ffffff25;padding:11px 0;color:#e3edf9;font-size:12px}.mini-stat strong{color:white}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-22px;position:relative;z-index:2}.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:17px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:13px}.stat-icon{width:39px;height:39px;display:grid;place-items:center;background:#edf4ff;border-radius:11px;font-size:18px}.stat b{font-size:19px;display:block}.stat span{font-size:11px;color:var(--muted)}
+section{padding:55px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:23px}.kicker{color:var(--blue);font-size:10px;letter-spacing:1.8px;font-weight:850;text-transform:uppercase}.section-head h2{font-size:27px;letter-spacing:-.7px;margin:7px 0 0}.section-head p{color:var(--muted);font-size:13px;margin:7px 0 0;line-height:1.5}.text-link{color:var(--blue);font-size:12px;font-weight:800}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.quick{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;transition:.2s;cursor:pointer}.quick:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c7d8f4}.quick .qicon{width:42px;height:42px;background:#eef4ff;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:15px}.quick h3{font-size:14px;margin:0 0 6px}.quick p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
+.library{background:#edf2f8}.filters{background:white;border:1px solid var(--line);border-radius:15px;padding:16px;display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:10px;margin-bottom:18px}.field{position:relative}.field input,.field select{width:100%;height:44px;border:1px solid #dce4ef;border-radius:9px;background:#fff;padding:0 12px;color:var(--ink);outline:none;font-size:12px}.field input:focus,.field select:focus{border-color:#75a0e8;box-shadow:0 0 0 3px #2b69c51a}.resultsbar{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;margin:0 2px 13px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.resource{background:white;border:1px solid var(--line);border-radius:15px;padding:18px;display:flex;flex-direction:column;min-height:220px;transition:.2s}.resource:hover{box-shadow:var(--shadow);transform:translateY(-3px)}.r-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.tag{background:#edf4ff;color:#2457a0;border-radius:6px;padding:5px 8px;font-size:9px;font-weight:850;letter-spacing:.5px;text-transform:uppercase}.tag.green{background:#e8f7f2;color:#14765f}.year{font-size:11px;color:#7b8798;font-weight:750}.resource h3{font-size:15px;line-height:1.35;margin:15px 0 7px}.resource p{font-size:11px;color:var(--muted);line-height:1.55;margin:0 0 15px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-bottom:14px}.meta span{font-size:10px;color:#61718a;background:#f3f6fa;padding:5px 7px;border-radius:6px}.open-resource{border:0;border-radius:9px;background:var(--navy);color:white;padding:10px 12px;font-size:11px;font-weight:800;cursor:pointer;text-align:center}.open-resource:hover{background:var(--blue)}.empty{grid-column:1/-1;text-align:center;padding:45px 15px;color:var(--muted);background:white;border-radius:14px;border:1px dashed #ccd6e4}.empty b{display:block;color:var(--ink);margin-bottom:6px}
+.banner{background:linear-gradient(110deg,#e9f5fb,#f5f8ff);border:1px solid #dce8f5;border-radius:18px;padding:25px;display:flex;justify-content:space-between;align-items:center;gap:20px}.banner h3{font-size:18px;margin:0 0 6px}.banner p{font-size:12px;color:var(--muted);margin:0;line-height:1.6}.banner .btn{background:var(--blue);color:white;white-space:nowrap}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info{background:white;border:1px solid var(--line);border-radius:15px;padding:22px}.info h3{margin:0 0 8px;font-size:15px}.info p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}.info a{display:inline-block;color:var(--blue);font-size:12px;font-weight:800;margin-top:14px}
+footer{background:#0e2345;color:#d7e2f2;padding:35px 0 22px}.foot{display:flex;justify-content:space-between;gap:25px;align-items:start}.foot strong{color:white}.foot p{font-size:11px;line-height:1.6;color:#aebed4;max-width:480px}.foot-links{display:flex;gap:17px;flex-wrap:wrap;font-size:11px}.foot-links a:hover{color:white}.copyright{border-top:1px solid #ffffff1c;margin-top:25px;padding-top:16px;color:#91a5c1;font-size:10px;display:flex;justify-content:space-between;gap:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:#122b53;color:white;padding:12px 17px;border-radius:10px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.nav{gap:13px}.hero-inner{grid-template-columns:1fr .55fr}.quick-grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}.filters .search{grid-column:1/-1}}
+@media(max-width:620px){.wrap{width:min(100% - 28px,1160px)}.head{height:66px}.menu{display:block}.nav{display:none;position:absolute;top:65px;left:0;right:0;background:white;padding:18px 22px 22px;box-shadow:0 15px 25px #102a5618;flex-direction:column;align-items:stretch}.nav.open{display:flex}.nav a{padding:8px 0}.nav .nav-cta{text-align:center;padding:12px}.hero-inner{padding:48px 0 47px;grid-template-columns:1fr}.hero h1{font-size:38px}.hero-card{justify-self:stretch;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:0 15px}.hero-card .big{grid-row:span 2}.hero-card p{margin:6px 0}.mini-stat{grid-column:span 2}.stats{grid-template-columns:1fr;gap:9px;margin-top:-15px}.stat{padding:12px 15px}.stat-icon{width:34px;height:34px}.section-head{align-items:start;flex-direction:column}.section-head h2{font-size:24px}.quick-grid{gap:10px}.quick{padding:15px}.quick h3{font-size:13px}.filters{grid-template-columns:1fr 1fr;padding:12px}.filters .search{grid-column:1/-1}.cards{grid-template-columns:1fr}.resource{min-height:195px}.banner{align-items:start;flex-direction:column}.info-grid{grid-template-columns:1fr}.foot{flex-direction:column}.copyright{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+ <div class="wrap head">
+  <a class="brand" href="#inicio"><span class="logo">✦</span><span>PORTAL DE ESTUDOS<small>PROVA PAULISTA • PROVÃO SERIADO</small></span></a>
+  <button class="menu" id="menuBtn" aria-label="Abrir menu">☰</button>
+  <nav class="nav" id="nav">
+   <a href="#inicio">Início</a><a href="#atalhos">Acessos rápidos</a><a href="#biblioteca">Biblioteca</a><a href="#fontes">Fontes oficiais</a><a class="nav-cta" href="#biblioteca">Explorar materiais ↗</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+ <div class="wrap hero-inner">
+  <div><div class="eyebrow">CENTRAL DE MATERIAIS ESCOLARES</div><h1>Seu próximo passo<br>começa pelo estudo.</h1><p>Encontre provas, cadernos, gabaritos, revisões e documentos de apoio em um só lugar. Conteúdo organizado para facilitar a preparação ao longo de todo o Ensino Médio.</p>
+   <div class="hero-actions"><a class="btn btn-light" href="#biblioteca">Explorar biblioteca <span>→</span></a><a class="btn btn-outline" href="https://provaopaulistaseriado.vunesp.com.br/" target="_blank" rel="noopener">Provão Paulista oficial ↗</a></div>
+  </div>
+  <div class="hero-card"><div class="big">2023–26</div><p>Materiais organizados por edição</p><div class="mini-stat"><span>Prova Paulista</span><strong>Acervo histórico</strong></div><div class="mini-stat"><span>Provão Seriado</span><strong>Portal oficial</strong></div><div class="mini-stat"><span>Acesso</span><strong>24 horas</strong></div></div>
+ </div>
+</section>
+<div class="wrap stats">
+ <div class="stat"><div class="stat-icon">📚</div><div><b>Provas e revisões</b><span>Materiais de apoio reunidos</span></div></div>
+ <div class="stat"><div class="stat-icon">🗂️</div><div><b>Acervo por edição</b><span>Organização por ano e bimestre</span></div></div>
+ <div class="stat"><div class="stat-icon">🔎</div><div><b>Busca inteligente</b><span>Encontre materiais rapidamente</span></div></div>
+</div>
+<section id="atalhos">
+ <div class="wrap"><div class="section-head"><div><div class="kicker">NAVEGAÇÃO RÁPIDA</div><h2>O que você está procurando?</h2><p>Escolha uma área para ir direto ao conteúdo.</p></div></div>
+  <div class="quick-grid">
+   <a class="quick" href="#biblioteca" data-preset="Prova Paulista"><div class="qicon">📝</div><h3>Prova Paulista</h3><p>Cadernos do estudante, professor e gabaritos.</p></a>
+   <a class="quick" href="#biblioteca" data-preset="Revisão"><div class="qicon">📖</div><h3>Revisões</h3><p>Materiais de revisão e preparação por bimestre.</p></a>
+   <a class="quick" href="#biblioteca" data-preset="Provão"><div class="qicon">🎓</div><h3>Provão Paulista</h3><p>Provas, editais e documentos do processo seriado.</p></a>
+   <a class="quick" href="#fontes"><div class="qicon">📑</div><h3>Documentos oficiais</h3><p>Acesse as páginas de referência e orientações.</p></a>
+  </div>
+ </div>
+</section>
+<section class="library" id="biblioteca">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">ACERVO DIGITAL</div><h2>Biblioteca de materiais</h2><p>Pesquise e filtre os materiais disponíveis. Os arquivos são abertos nas fontes oficiais.</p></div><span class="text-link" id="clearFilters" role="button" tabindex="0">Limpar filtros ↺</span></div>
+  <div class="filters">
+   <div class="field search"><input id="search" type="search" placeholder="⌕  Buscar por título, ano ou conteúdo..." aria-label="Buscar materiais"></div>
+   <div class="field"><select id="year"><option value="">Todos os anos</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option></select></div>
+   <div class="field"><select id="kind"><option value="">Todos os tipos</option><option value="Prova Paulista">Prova Paulista</option><option value="Revisão">Revisão</option><option value="Recuperação">Recuperação</option><option value="Provão">Provão Paulista</option><option value="Documento">Documento</option></select></div>
+   <div class="field"><select id="grade"><option value="">Todas as séries</option><option value="Ensino Fundamental">Ensino Fundamental</option><option value="Ensino Médio">Ensino Médio</option><option value="1ª série">1ª série</option><option value="2ª série">2ª série</option><option value="3ª série">3ª série</option></select></div>
+  </div>
+  <div class="resultsbar"><span id="count">Carregando materiais...</span><span>Atualizado para consulta • 2026</span></div>
+  <div class="cards" id="cards"></div>
+ </div>
+</section>
+<section id="fontes">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">CONSULTA E CONFIABILIDADE</div><h2>Fontes oficiais</h2><p>Consulte também as páginas originais responsáveis pela publicação dos materiais.</p></div></div>
+  <div class="info-grid">
+   <article class="info"><h3>Prova Paulista • DagoPEI</h3><p>Acervo de cadernos do estudante e do professor, revisões, resultados, documentos orientadores e materiais de apoio organizados por edição.</p><a href="https://sites.google.com/prof.educacao.sp.gov.br/dagopei/prova-paulista" target="_blank" rel="noopener">Abrir página de referência ↗</a></article>
+   <article class="info"><h3>Provão Paulista Seriado • VUNESP</h3><p>Portal oficial com editais, comunicados, documentos e cadernos de questões e gabaritos do Provão Paulista Seriado.</p><a href="https://provaopaulistaseriado.vunesp.com.br/" target="_blank" rel="noopener">Abrir portal VUNESP ↗</a></article>
+  </div>
+  <div class="banner" style="margin-top:18px"><div><h3>Um portal que pode crescer com a escola</h3><p>Esta versão inicial organiza o acesso aos materiais. A estrutura foi preparada para receber, em uma próxima etapa, o banco de dados e o painel de publicação dos professores.</p></div><a class="btn" href="#inicio">Voltar ao início ↑</a></div>
+ </div>
+</section>
+</main>
+<footer><div class="wrap"><div class="foot"><div><strong>PORTAL DE ESTUDOS</strong><p>Central de consulta de materiais educacionais para apoiar estudantes e professores. Os documentos externos permanecem hospedados em suas fontes originais.</p></div><div class="foot-links"><a href="#inicio">Início</a><a href="#biblioteca">Biblioteca</a><a href="#fontes">Fontes oficiais</a></div></div><div class="copyright"><span>© 2026 • Portal de Estudos</span><span>Projeto independente de organização de materiais educacionais.</span></div></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const resources = [
+ {title:"Prova Paulista • 3º bimestre",year:"2026",kind:"Prova Paulista",grade:"Todas as séries",desc:"Pasta de materiais do 3º bimestre de 2026. Consulte os cadernos disponíveis na fonte.",tags:["Cadernos","Professor e estudante"],url:"https://drive.google.com/drive/folders/1xNZFlMBZ61nUh0RcLck-UYN9mjFWihrs?usp=drive_link"},
+ {title:"Prova Paulista • 2º bimestre",year:"2026",kind:"Prova Paulista",grade:"Todas as séries",desc:"Pasta de materiais do 2º bimestre de 2026, organizada na fonte original.",tags:["Cadernos","Professor e estudante"],url:"https://drive.google.com/drive/folders/1apAEC6bNimhRXP3aia2rNDoOl9WNVdMc?usp=drive_link"},
+ {title:"Prova Paulista • 1º bimestre",year:"2026",kind:"Prova Paulista",grade:"Todas as séries",desc:"Cadernos e gabaritos da Prova Paulista do 1º bimestre de 2026.",tags:["Cadernos","Gabaritos"],url:"https://drive.google.com/drive/folders/1mGxrlHuyuYW-mTIjSa8O3ZkdG1VC-eW5?usp=drive_link"},
+ {title:"Revisão Prova Paulista • 1º bimestre",year:"2026",kind:"Revisão",grade:"Ensino Fundamental",desc:"Questões de revisão para estudantes do 6º ano do Fundamental à 3ª série do Ensino Médio.",tags:["Questões","Revisão"],url:"https://drive.google.com/drive/folders/1S_qmKRZq0_Jm89klzio8n75RWQ1ZxD2j?usp=drive_link"},
+ {title:"Revisão Prova Paulista • 3º bimestre",year:"2026",kind:"Revisão",grade:"Ensino Fundamental",desc:"Material de revisão do 3º bimestre de 2026, conforme disponibilizado no acervo de referência.",tags:["Questões","Revisão"],url:"https://drive.google.com/drive/folders/1ufTTiAfC307JD1_5jQuI4blGbIrDnzUP?usp=drive_link"},
+ {title:"Prova Paulista • 3º bimestre",year:"2025",kind:"Prova Paulista",grade:"Todas as séries",desc:"Cadernos do estudante e do professor da edição de 2025.",tags:["Cadernos","Gabaritos"],url:"https://drive.google.com/drive/folders/1XT7PazQm1gCVF6udf9GghPhBpBahxVmf?usp=drive_link"},
+ {title:"Prova Paulista • 2º bimestre",year:"2025",kind:"Prova Paulista",grade:"Todas as séries",desc:"Cadernos do estudante e do professor da edição de 2025.",tags:["Cadernos","Gabaritos"],url:"https://drive.google.com/drive/folders/182yLUD5jdkQNHJRswLHQZrpknNUElyAw?usp=drive_link"},
+ {title:"Prova Paulista • 1º bimestre",year:"2025",kind:"Prova Paulista",grade:"Todas as séries",desc:"Cadernos do estudante e do professor da edição de 2025.",tags:["Cadernos","Gabaritos"],url:"https://drive.google.com/drive/folders/1jFMwlT7qfRFxnyu5Bon3OrgCG3mbH27r?usp=drive_link"},
+ {title:"Prova Paulista • 2024",year:"2024",kind:"Prova Paulista",grade:"Todas as séries",desc:"Acervo da Prova Paulista de 2024, com materiais dos três bimestres.",tags:["Cadernos","Professor e estudante"],url:"https://drive.google.com/drive/folders/1qVxKBypueSDadkQQRNEBfNvnc6Tnun9B?usp=drive_link"},
+ {title:"Prova Paulista • 2023",year:"2023",kind:"Prova Paulista",grade:"Todas as séries",desc:"Acervo da Prova Paulista de 2023, com materiais dos três bimestres.",tags:["Cadernos","Professor e estudante"],url:"https://drive.google.com/drive/folders/1Q8OdUz3cjHxjU5Q08K905zULPmEU6ySQ?usp=share_link"},
+ {title:"Recuperação • Caderno do estudante",year:"2024",kind:"Recuperação",grade:"Todas as séries",desc:"Pasta de cadernos do estudante para as provas de recuperação de 2024.",tags:["Recuperação","Caderno"],url:"https://drive.google.com/drive/folders/1QCFFVl7bx4s0R0GrzAHMj7IhIYTrLuRL?usp=drive_link"},
+ {title:"Recuperação • Caderno do professor",year:"2024",kind:"Recuperação",grade:"Todas as séries",desc:"Pasta de cadernos do professor para as provas de recuperação de 2024.",tags:["Recuperação","Caderno"],url:"https://drive.google.com/drive/folders/1Lbq8LgUp_Ul0uX-te1EOSeT_JPMNB8Bv?usp=drive_link"},
+ {title:"Provão Paulista Seriado • Portal oficial",year:"2026",kind:"Provão",grade:"Ensino Médio",desc:"Portal oficial da VUNESP com editais, comunicados, documentos e materiais do Provão Paulista Seriado.",tags:["Editais","Provas","Gabaritos"],url:"https://provaopaulistaseriado.vunesp.com.br/"},
+ {title:"Documento orientador • Prova Paulista",year:"2024",kind:"Documento",grade:"Todas as séries",desc:"Orientações e documentos de referência sobre a aplicação da Prova Paulista.",tags:["Orientações","Documento oficial"],url:"https://sites.google.com/prof.educacao.sp.gov.br/dagopei/prova-paulista"},
+ {title:"Materiais de apoio • Lives SEDUC / CMSP",year:"2024",kind:"Documento",grade:"Todas as séries",desc:"Apresentações e materiais de apoio pedagógico listados na página de referência.",tags:["Apresentações","Apoio pedagógico"],url:"https://sites.google.com/prof.educacao.sp.gov.br/dagopei/prova-paulista"}
+];
+const cards=document.getElementById('cards'),count=document.getElementById('count');
+const search=document.getElementById('search'),year=document.getElementById('year'),kind=document.getElementById('kind'),grade=document.getElementById('grade');
+function render(){
+ const q=search.value.trim().toLocaleLowerCase('pt-BR');
+ const list=resources.filter(r=>{
+  const hay=[r.title,r.year,r.kind,r.grade,r.desc,...r.tags].join(' ').toLocaleLowerCase('pt-BR');
+  const gradeOk=!grade.value||r.grade==="Todas as séries"||r.grade===grade.value||(grade.value==="Ensino Médio"&&r.grade==="Ensino Fundamental");
+  return (!q||hay.includes(q))&&(!year.value||r.year===year.value)&&(!kind.value||r.kind===kind.value)&&gradeOk;
+ });
+ count.textContent=`${list.length} ${list.length===1?'material encontrado':'materiais encontrados'}`;
+ cards.innerHTML=list.length?list.map((r,i)=>`<article class="resource"><div class="r-top"><span class="tag ${r.kind==='Provão'?'green':''}">${r.kind}</span><span class="year">${r.year}</span></div><h3>${escapeHtml(r.title)}</h3><p>${escapeHtml(r.desc)}</p><div class="meta">${r.tags.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}<span>${escapeHtml(r.grade)}</span></div><button class="open-resource" data-url="${r.url}">Acessar material ↗</button></article>`).join(''):'<div class="empty"><b>Nenhum material encontrado.</b>Tente alterar os filtros ou usar outros termos de busca.</div>';
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+[search,year,kind,grade].forEach(el=>el.addEventListener(el===search?'input':'change',render));
+document.getElementById('clearFilters').addEventListener('click',clearFilters);
+document.getElementById('clearFilters').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();clearFilters();}});
+function clearFilters(){search.value='';year.value='';kind.value='';grade.value='';render();}
+document.querySelectorAll('[data-preset]').forEach(el=>el.addEventListener('click',()=>{kind.value=el.dataset.preset;render();}));
+cards.addEventListener('click',e=>{const b=e.target.closest('[data-url]');if(b)window.open(b.dataset.url,'_blank','noopener,noreferrer');});
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+render();
+</script>
+</body>
+</html>
